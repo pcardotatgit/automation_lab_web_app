@@ -43,7 +43,9 @@ Download the project into a working directory into your laptop. Unzip the dowloa
 - then type b
 - then type c
 
-***Notice :*** I came to several times to the situation where this c.bat ( which does a pip install -r requirements.txt ) fails. fails. Then we have to install the modules separately as shown bellow
+***Notice :*** I came accros several times to the situation where this c.bat ( which does a pip install -r requirements.txt ) fails.
+
+Then we have to install the modules one by one as shown bellow
     
     pip install flask
     pip install flask_request_params
