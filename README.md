@@ -154,6 +154,10 @@ password is : password
 
 The principle of this lab is to create a workflow in the workflow editor.
 
+Student have to follow the lab guide. 
+
+API keys shared with students are fakes keys, only valid for the simulator.
+
 This workflow is a serie of steps, put one after the other which execute every atomic operation needed to achieve the final goal.
 
 Generally speaking you to... find the correct API call to send to the targeted Security Solution, Search in the Web Application the step which had been prepared for this call. Then customize it by selecting the correct inputs, and selecting the correct output.
