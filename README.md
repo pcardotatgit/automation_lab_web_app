@@ -115,7 +115,9 @@ Then install required python modules ( Windows / Mac / Linux )
 
     pip install -r requirements.txt
     
-    Some time this instruction fails. Then we have to install the modules separately as shown bellow
+Some time this instruction above fails. It seems to work but the modules are not installed.  
+
+I such case we have to install the python modules one by one as shown bellow
     
     pip install flask
     pip install flask_request_params
