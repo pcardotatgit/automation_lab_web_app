@@ -124,6 +124,16 @@ Then install required python modules ( Windows / Mac / Linux )
 
     pip install -r requirements.txt
     
+Or install the required modules separately :
+
+    pip install flask
+    pip install flask_request_params
+    pip install sqlalchemy
+    pip install pandas
+    pip install crayons
+    pip install requests
+    pip install ijson
+    
 ## finalize the installation run the **z_minimum_init_appli.py** script
 
     python z_init_appli.py
