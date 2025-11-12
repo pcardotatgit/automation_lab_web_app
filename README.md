@@ -72,6 +72,7 @@ And here under for those of you who are familiar with Github.
 You must have a git client installed into your laptop. Then you can type the following command from a terminal console opened into your working directory.
 
     git clone https://github.com/pcardotatgit/automation_lab_web_app.git
+    
 
 ## Step 3. Go to the code subfolder
 
@@ -99,7 +100,7 @@ or maybe
 
 or maybe 
 
-- python3.9 -m venv venv  : if you use the 3.9 python version
+- python3.11 -m venv venv  : if you use the 3.11 python version
 
 And then move to the next step : Activate the virtual environment.
 
@@ -125,21 +126,30 @@ Then install required python modules ( Windows / Mac / Linux )
     
 ## finalize the installation run the **z_minimum_init_appli.py** script
 
-    python z_minimum_init_appli.py
+    python z_init_appli.py
 
 ## Step 7 : run the simulator
 
     python simulator.py
     
-You should see the flask console indicating you the the web server is listening on port 4000. And at the same time your browser should open on the login page.
+You should see the flask console indicating you the the web server is listening on port 4000. 
+
+## Authorize Network Connections to the application in the Firewall !
+
+When you run the flask server for the first time... you are suppose to see a popup from for personnal firewall, telling you to authorize connections to this application on port TCP 4000.
+
+Authorize this
+
+## The challenge starts
+
+Your browser should open on the login page.
 
 username is : admin
 password is : password
 
-***Notice : *** username/password is a possible improvement for this application. It is not the case so far, but the application is ready for this.
+***Notice :*** username/password is a possible improvement for this application. It is not the case so far, but the application is ready for this.
 
 
-    
 # Your Challenge
 
 The principle of this lab is to create a workflow in the workflow editor.
