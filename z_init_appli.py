@@ -21,7 +21,7 @@ def create_connection(db_file):
     '''
     route="/create_connection"
     env.level+='-'
-    print('\n'+env.level,white('def create_connection() in app.py : >\n',bold=True))
+    #print('\n'+env.level,white('def create_connection() in app.py : >\n',bold=True))
     #loguer(env.level+' def create_connection() in app.py : >')
     conn = None
     try:
@@ -35,33 +35,33 @@ def create_connection(db_file):
 def reset_databases():
     action_type = 'replace'
     # WORKFLOWS
-    print(red('RESET VARIABLES',bold=True))
+    #print(red('RESET VARIABLES',bold=True))
     with open('./sqlite_databases_code/workflows/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     database = os.getcwd()+'/z_bases/workflows.db'
     database=database.replace("\\","/")
-    print('database is :',database)
-    print('table is :', db_details_dict["table_name"])
+    #print('database is :',database)
+    #print('table is :', db_details_dict["table_name"])
     conn=create_connection(database) # open connection to database
     if conn:
         # connection to database is OK
         c=conn.cursor()
-        print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+        #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
         sql_request="drop table "+db_details_dict["table_name"]
         c.execute(sql_request)
         conn.commit()
-        print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+        #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
         create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-        print(f'-- OK table {db_details_dict["table_name"]} reseted')     
+        #print(f'-- OK table {db_details_dict["table_name"]} reseted')     
     db_name='workflows'
     with open('./sqlite_databases_code/'+db_name+'/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     database = os.getcwd()+'/z_bases/'+db_name+'.db'
     database=database.replace("\\","/")
-    print('database is :',database)
-    print('table is :',db_details_dict['table_name'])
+    #print('database is :',database)
+    #print('table is :',db_details_dict['table_name'])
     lines=[]
     file='./DB_backups/workflows_init_20251109.csv'
     with open (file) as csvfile:
@@ -72,13 +72,13 @@ def reset_databases():
             if conn:
                 # connection to database is OK
                 c=conn.cursor()
-                print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+                #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
                 sql_request="drop table "+db_details_dict["table_name"]
                 c.execute(sql_request)
                 conn.commit()
-                print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+                #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
                 create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-                print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
+                #print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
             indexA=0
         else:
             indexA=sqlite_db_get_last_index(db_name)+1
@@ -92,11 +92,11 @@ def reset_databases():
                 sqlite_data=[indexA]
                 for cel in row:
                     sqlite_data.append(cel)
-                print('\nsqlite_data :',cyan(sqlite_data,bold=True))
+                #print('\nsqlite_data :',cyan(sqlite_data,bold=True))
                 sql_add=f"INSERT OR IGNORE into {db_details_dict['table_name']} (`index`,"
                 i=0
                 for col in db_details_dict['columns']:
-                    print(col)
+                    #print(col)
                     if i<len_columns:
                         sql_add=sql_add+col+","
                     else:
@@ -105,24 +105,24 @@ def reset_databases():
                 sql_add=sql_add+' VALUES (?,'
                 i=0
                 for col in db_details_dict['columns']:
-                    print(col)
+                    #print(col)
                     if i<len_columns:
                         sql_add=sql_add+"?,"
                     else:
                         sql_add=sql_add+'?)'
                     i+=1
                 #sql_add="INSERT OR IGNORE into truc (`index`,premier,deuxieme,troisieme,quatrieme) VALUES (?,?,?,?,?)"
-                print('\nsql_add :',cyan(sql_add,bold=True))
+                #print('\nsql_add :',cyan(sql_add,bold=True))
             c.execute(sql_add, sqlite_data)
-            print(green("==> OK Done : demo data ingested",bold=True))
+            #print(green("==> OK Done : demo data ingested",bold=True))
             indexA+=1
             conn.commit()
 
     #VARIABLES
-    print(red('RESET VARIABLES',bold=True))
+    #print(red('RESET VARIABLES',bold=True))
     with open('./sqlite_databases_code/variables/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     file=open('./sqlite_databases_code/variables/init/variables.csv','w')
     ligne_out=''
     len_columns=len(db_details_dict['columns'])-1
@@ -141,18 +141,18 @@ def reset_databases():
     create_db_and_table(db_details_dict['db_name'],db_details_dict['table_name'])
     
     db_name = "variables"
-    print("\ndb_name : ",db_name)
-    print("\naction_type : ",action_type)        
+    #print("\ndb_name : ",db_name)
+    #print("\naction_type : ",action_type)        
 
     result=1
     if result==1:
         with open('./sqlite_databases_code/variables/db_details.txt') as file:
             db_details_dict=json.loads(file.read())
-        print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+        #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
         database = os.getcwd()+'/z_bases/'+db_name+'.db'
         database=database.replace("\\","/")
-        print('database is :',database)
-        print('table is :',db_details_dict['table_name'])
+        #print('database is :',database)
+        #print('table is :',db_details_dict['table_name'])
         lines=[]
         file='./DB_backups/variables_ok_20251109.csv'
         with open (file) as csvfile:
@@ -163,13 +163,13 @@ def reset_databases():
                 if conn:
                     # connection to database is OK
                     c=conn.cursor()
-                    print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+                    #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
                     sql_request="drop table "+db_details_dict["table_name"]
                     c.execute(sql_request)
                     conn.commit()
-                    print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+                    #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
                     create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-                    print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
+                    #print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
                 indexA=0
             else:
                 indexA=sqlite_db_get_last_index(db_name)+1
@@ -183,11 +183,11 @@ def reset_databases():
                     sqlite_data=[indexA]
                     for cel in row:
                         sqlite_data.append(cel)
-                    print('\nsqlite_data :',cyan(sqlite_data,bold=True))
+                    #print('\nsqlite_data :',cyan(sqlite_data,bold=True))
                     sql_add=f"INSERT OR IGNORE into {db_details_dict['table_name']} (`index`,"
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+col+","
                         else:
@@ -196,22 +196,22 @@ def reset_databases():
                     sql_add=sql_add+' VALUES (?,'
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+"?,"
                         else:
                             sql_add=sql_add+'?)'
                         i+=1
                     #sql_add="INSERT OR IGNORE into truc (`index`,premier,deuxieme,troisieme,quatrieme) VALUES (?,?,?,?,?)"
-                    print('\nsql_add :',cyan(sql_add,bold=True))
+                    #print('\nsql_add :',cyan(sql_add,bold=True))
                 c.execute(sql_add, sqlite_data)
-                print(green("==> OK Done : demo data ingested",bold=True))
+                #print(green("==> OK Done : demo data ingested",bold=True))
                 indexA+=1
                 conn.commit()  
     # FUNCTIONS
     with open('./sqlite_databases_code/functions/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     file=open('./sqlite_databases_code/functions/init/functions.csv','w')
     ligne_out=''
     len_columns=len(db_details_dict['columns'])-1
@@ -230,18 +230,18 @@ def reset_databases():
     create_db_and_table(db_details_dict['db_name'],db_details_dict['table_name'])
     
     db_name = "functions"
-    print("\ndb_name : ",db_name)
-    print("\naction_type : ",action_type)        
+    #print("\ndb_name : ",db_name)
+    #print("\naction_type : ",action_type)        
 
     result=1
     if result==1:
         with open('./sqlite_databases_code/functions/db_details.txt') as file:
             db_details_dict=json.loads(file.read())
-        print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+        #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
         database = os.getcwd()+'/z_bases/'+db_name+'.db'
         database=database.replace("\\","/")
-        print('database is :',database)
-        print('table is :',db_details_dict['table_name'])
+        #print('database is :',database)
+        #print('table is :',db_details_dict['table_name'])
         lines=[]
         file='./DB_backups/functions_ok_20251109.csv'
         with open (file) as csvfile:
@@ -252,13 +252,13 @@ def reset_databases():
                 if conn:
                     # connection to database is OK
                     c=conn.cursor()
-                    print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+                    #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
                     sql_request="drop table "+db_details_dict["table_name"]
                     c.execute(sql_request)
                     conn.commit()
-                    print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+                    #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
                     create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-                    print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
+                    #print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
                 indexA=0
             else:
                 indexA=sqlite_db_get_last_index(db_name)+1
@@ -272,11 +272,11 @@ def reset_databases():
                     sqlite_data=[indexA]
                     for cel in row:
                         sqlite_data.append(cel)
-                    print('\nsqlite_data :',cyan(sqlite_data,bold=True))
+                    #print('\nsqlite_data :',cyan(sqlite_data,bold=True))
                     sql_add=f"INSERT OR IGNORE into {db_details_dict['table_name']} (`index`,"
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+col+","
                         else:
@@ -285,22 +285,22 @@ def reset_databases():
                     sql_add=sql_add+' VALUES (?,'
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+"?,"
                         else:
                             sql_add=sql_add+'?)'
                         i+=1
                     #sql_add="INSERT OR IGNORE into truc (`index`,premier,deuxieme,troisieme,quatrieme) VALUES (?,?,?,?,?)"
-                    print('\nsql_add :',cyan(sql_add,bold=True))
+                    #print('\nsql_add :',cyan(sql_add,bold=True))
                 c.execute(sql_add, sqlite_data)
-                print(green("==> OK Done : demo data ingested",bold=True))
+                #print(green("==> OK Done : demo data ingested",bold=True))
                 indexA+=1
                 conn.commit()  
     # ACCOUNT KEYS
     with open('./sqlite_databases_code/account_keys/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     file=open('./sqlite_databases_code/account_keys/init/account_keys.csv','w')
     ligne_out=''
     len_columns=len(db_details_dict['columns'])-1
@@ -319,17 +319,17 @@ def reset_databases():
     create_db_and_table(db_details_dict['db_name'],db_details_dict['table_name'])
     
     db_name = "account_keys"
-    print("\ndb_name : ",db_name)
-    print("\naction_type : ",action_type)        
+    #print("\ndb_name : ",db_name)
+    #print("\naction_type : ",action_type)        
     result=1
     if result==1:
         with open('./sqlite_databases_code/account_keys/db_details.txt') as file:
             db_details_dict=json.loads(file.read())
-        print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+        #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
         database = os.getcwd()+'/z_bases/'+db_name+'.db'
         database=database.replace("\\","/")
-        print('database is :',database)
-        print('table is :',db_details_dict['table_name'])
+        #print('database is :',database)
+        #print('table is :',db_details_dict['table_name'])
         lines=[]
         file='./DB_backups/account_keys_ok_20251109.csv'
         with open (file) as csvfile:
@@ -340,13 +340,13 @@ def reset_databases():
                 if conn:
                     # connection to database is OK
                     c=conn.cursor()
-                    print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+                    #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
                     sql_request="drop table "+db_details_dict["table_name"]
                     c.execute(sql_request)
                     conn.commit()
-                    print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+                    #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
                     create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-                    print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
+                    #print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
                 indexA=0
             else:
                 indexA=sqlite_db_get_last_index(db_name)+1
@@ -360,11 +360,11 @@ def reset_databases():
                     sqlite_data=[indexA]
                     for cel in row:
                         sqlite_data.append(cel)
-                    print('\nsqlite_data :',cyan(sqlite_data,bold=True))
+                    #print('\nsqlite_data :',cyan(sqlite_data,bold=True))
                     sql_add=f"INSERT OR IGNORE into {db_details_dict['table_name']} (`index`,"
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+col+","
                         else:
@@ -373,22 +373,22 @@ def reset_databases():
                     sql_add=sql_add+' VALUES (?,'
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+"?,"
                         else:
                             sql_add=sql_add+'?)'
                         i+=1
                     #sql_add="INSERT OR IGNORE into truc (`index`,premier,deuxieme,troisieme,quatrieme) VALUES (?,?,?,?,?)"
-                    print('\nsql_add :',cyan(sql_add,bold=True))
+                    #print('\nsql_add :',cyan(sql_add,bold=True))
                 c.execute(sql_add, sqlite_data)
-                print(green("==> OK Done : demo data ingested",bold=True))
+                #print(green("==> OK Done : demo data ingested",bold=True))
                 indexA+=1
                 conn.commit()
     # API_CALLS
     with open('./sqlite_databases_code/api_calls/db_details.txt') as file:
         db_details_dict=json.loads(file.read())
-    print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+    #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
     file=open('./sqlite_databases_code/api_calls/init/api_calls.csv','w')
     ligne_out=''
     len_columns=len(db_details_dict['columns'])-1
@@ -407,18 +407,18 @@ def reset_databases():
     create_db_and_table(db_details_dict['db_name'],db_details_dict['table_name'])
     
     db_name = "api_calls"
-    print("\ndb_name : ",db_name)
-    print("\naction_type : ",action_type)        
+    #print("\ndb_name : ",db_name)
+    #print("\naction_type : ",action_type)        
 
     result=1
     if result==1:
         with open('./sqlite_databases_code/'+db_name+'/db_details.txt') as file:
             db_details_dict=json.loads(file.read())
-        print('db_details_dict : \n',yellow(db_details_dict,bold=True))
+        #print('db_details_dict : \n',yellow(db_details_dict,bold=True))
         database = os.getcwd()+'/z_bases/'+db_name+'.db'
         database=database.replace("\\","/")
-        print('database is :',database)
-        print('table is :',db_details_dict['table_name'])
+        #print('database is :',database)
+        #print('table is :',db_details_dict['table_name'])
         lines=[]
         file='./DB_backups/api_calls_ok_20251109.csv'
         with open (file) as csvfile:
@@ -429,13 +429,13 @@ def reset_databases():
                 if conn:
                     # connection to database is OK
                     c=conn.cursor()
-                    print(f'- Deleting table : {db_details_dict["table_name"]} =>')
+                    #print(f'- Deleting table : {db_details_dict["table_name"]} =>')
                     sql_request="drop table "+db_details_dict["table_name"]
                     c.execute(sql_request)
                     conn.commit()
-                    print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
+                    #print('-- OK DONE : Deleted table : '+db_details_dict["table_name"])
                     create_db_and_table(db_details_dict["db_name"],db_details_dict["table_name"])
-                    print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
+                    #print(f'-- OK table {db_details_dict["table_name"]} reseted')                  
                 indexA=0
             else:
                 indexA=sqlite_db_get_last_index(db_name)+1
@@ -449,11 +449,11 @@ def reset_databases():
                     sqlite_data=[indexA]
                     for cel in row:
                         sqlite_data.append(cel)
-                    print('\nsqlite_data :',cyan(sqlite_data,bold=True))
+                    #print('\nsqlite_data :',cyan(sqlite_data,bold=True))
                     sql_add=f"INSERT OR IGNORE into {db_details_dict['table_name']} (`index`,"
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+col+","
                         else:
@@ -462,16 +462,16 @@ def reset_databases():
                     sql_add=sql_add+' VALUES (?,'
                     i=0
                     for col in db_details_dict['columns']:
-                        print(col)
+                        #print(col)
                         if i<len_columns:
                             sql_add=sql_add+"?,"
                         else:
                             sql_add=sql_add+'?)'
                         i+=1
                     #sql_add="INSERT OR IGNORE into truc (`index`,premier,deuxieme,troisieme,quatrieme) VALUES (?,?,?,?,?)"
-                    print('\nsql_add :',cyan(sql_add,bold=True))
+                    #print('\nsql_add :',cyan(sql_add,bold=True))
                 c.execute(sql_add, sqlite_data)
-                print(green("==> OK Done : demo data ingested",bold=True))
+                #print(green("==> OK Done : demo data ingested",bold=True))
                 indexA+=1
                 conn.commit()  
 
@@ -518,7 +518,7 @@ if defined _OLD_CODEPAGE (
     os.remove("b.bat")
     os.remove("c.bat")
     os.remove("d.bat") 
-    os.remove("e.bat")
+    #os.remove("e.bat")
     with open('a.bat','w') as file:
         file.write('venv\\scripts\\activate')    
     with open('b.bat','w') as file:

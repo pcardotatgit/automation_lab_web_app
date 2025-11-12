@@ -26,7 +26,7 @@ Prerequisit on the machines is : python version 3.11 or more installed.
 
 Installation on windows is very straight forward. Installation on Mac or Linux is done thru standard python installation
 
-# Installation
+# Installation on windows desktops
 
 ## Prerequisit
 
@@ -42,6 +42,17 @@ Download the project into a working directory into your laptop. Unzip the dowloa
 - type a
 - then type b
 - then type c
+
+***Notice :*** I came to several times to the situation where this c.bat ( which does a pip install -r requirements.txt ) fails. fails. Then we have to install the modules separately as shown bellow
+    
+    pip install flask
+    pip install flask_request_params
+    pip install sqlalchemy
+    pip install pandas
+    pip install crayons
+    pip install requests
+    pip install ijson
+
 - then type d
 - finally type e
 
@@ -86,31 +97,11 @@ It is still a best practice to create a python virtual environment. Thank to thi
 
     python -m venv venv 
 
-### Create a virtual environment on Linux or Mac
-
-    python3 -m venv venv
-
-Depending on the python version you installed into your Mac you might have to type either 
-
-- python -m venv venv
-
-or maybe
-
-- python3 -m venv venv    : python3 for python version 3.x  
-
-or maybe 
-
-- python3.11 -m venv venv  : if you use the 3.11 python version
-
 And then move to the next step : Activate the virtual environment.
 
 ### Activate the virtual environment on Windows
 
-    venv\Scripts\activate
-
-### Activate the virtual environment on Linux or Mac
-
-    source venv/bin/activate    
+    venv\Scripts\activate  
 
 ## Step 5. Install needed python modules
 
@@ -124,8 +115,8 @@ Then install required python modules ( Windows / Mac / Linux )
 
     pip install -r requirements.txt
     
-Or install the required modules separately :
-
+    Some time this instruction fails. Then we have to install the modules separately as shown bellow
+    
     pip install flask
     pip install flask_request_params
     pip install sqlalchemy
@@ -140,7 +131,9 @@ Or install the required modules separately :
 
 ## Step 7 : run the simulator
 
-    python simulator.py
+    venv\Scripts\activate
+    
+    or a.bat
     
 You should see the flask console indicating you the the web server is listening on port 4000. 
 
@@ -158,7 +151,6 @@ username is : admin
 password is : password
 
 ***Notice :*** username/password is a possible improvement for this application. It is not the case so far, but the application is ready for this.
-
 
 # Your Challenge
 
