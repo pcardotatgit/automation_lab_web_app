@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<!-- description-->
+<html>
+	<head>
+		<title>FLASK APP GENERATOR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <script> 
+            function popup_window( url, id, width, height )
+            {
+               //extract the url parameters if any, and pass them to the called html
+               var tempvar=document.location.toString(); // fetch the URL string
+               var passedparams = tempvar.lastIndexOf("?");
+               if(passedparams > -1)
+                  url += tempvar.substring(passedparams);
+              popup = window.open( url, id, 'toolbar=no,scrollbars=yes,location=yes,statusbar=yes,menubar=no,resizable=yes,width=' + width + ',height=' + height + '' );
+              popup.focus();
+            }
+        </script>
+	</head>
+	<body>
+    <a href="javascript:popup_window('/page_info?page={{page_name}}&route={{route}}','page_info',700,600);">Edit the Page Code</a>
+
+	</body>
+</html>

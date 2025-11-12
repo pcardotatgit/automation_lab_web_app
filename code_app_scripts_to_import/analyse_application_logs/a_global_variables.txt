@@ -1,0 +1,20 @@
+title="debug"
+book='log'
+debug=0
+
+text_out='''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>'''+title+'''</title>
+    <link rel="StyleSheet" href="../static/dtree.css" type="text/css" />
+    <script type="text/javascript" src="../static/dtree.js"></script>
+</head>
+<body>
+<h1>'''+title+'''</h1>
+<div class="dtree">
+    <p><a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a></p>
+    <script type="text/javascript">
+        <!--
+        d = new dTree('d');
+        d.add(0,-1,'Application Log Tree');        
+'''

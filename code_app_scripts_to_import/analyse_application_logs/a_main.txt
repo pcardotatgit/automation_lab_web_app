@@ -1,0 +1,4 @@
+if __name__=="__main__":
+    print(white("\nstart here : analyse_application_log.py",bold=True))
+    main()
+    print(cyan('\n================ DONE ==================\n\nEnd of script : analyse_application_log.py',bold=True))    

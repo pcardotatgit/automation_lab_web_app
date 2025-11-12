@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!-- description-->
+<html>
+	<head>
+		<title>FLASK APP GENERATOR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <script>
+            function get_indic_judgments() {
+                var indicator_id = document.getElementById("the_feed").value;
+                //window.open("/check_xdr?client_id="+client_id+"&client_password="+client_password+"&region="+region);
+                window.open("/get_indic_judgments?indicator_id="+indicator_id,"_self");
+            }
+            function popup_window( url, id, width, height )
+            {
+               //extract the url parameters if any, and pass them to the called html
+               var tempvar=document.location.toString(); // fetch the URL string
+               var passedparams = tempvar.lastIndexOf("?");
+               if(passedparams > -1)
+                  url += tempvar.substring(passedparams);
+              popup = window.open( url, id, 'toolbar=no,scrollbars=yes,location=yes,statusbar=yes,menubar=no,resizable=yes,width=' + width + ',height=' + height + '' );
+              popup.focus();
+            }
+        </script>
+	</head>
+	<body class="is-preload">
+		<!-- Nav -->
+			<nav id="nav">
+					<li><a href="#top">Top of page</a></li>                    
+                    <li><a href="/">Back to main page</a></li>
+                    <li><a href="/tools">Back to tools page</a></li>
+                    <li><a href="/logout">log Out</a></li>
+                    <li><a href="javascript:popup_window('/page_info?page={{page_name}}&route={{route}}','page_info',700,600);">:</a></li>                    
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<article id="top" class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+							<span class="image fit"><img src="{{image}}" alt="" /></span>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1>Select an Indicator</strong>.</h1>
+							</header>
+                            <p>{{message1}}</p>
+                            <p>{{message2}}</p>
+                            <br>
+							<a href="{{message3}}" class="button small scrolly">{{message4}}</a>
+                            <li><a href="javascript:popup_window('/page_info?page=xxx.html&route={{route}}','page_info',500,400);">:</a></li>
+						</div>
+						
+					</div>				
+				</div>
+			</article>
+		<!-- Incident list-->
+			<article id="indic_list" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Indicators found into the selected XDR tenant</h2>
+						<p>Select an Indicator</p>
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-12">
+										<select id="the_feed">
+                                        {% for index, indic in indic_dict.items() %}
+                                            <option value="{{indic.indicator_id}}">{{indic.title}}</option>	
+                                        {% endfor %}
+                                        </select>
+									</div>      
+									<div class="col-12">
+										<ul class="actions">
+                                            <li><button onclick='get_indic_judgments();'>Submit</button></li>
+                                            <input type="hidden" name="var_name" value="data here" class="alt" />
+											<li><input type="reset" value="Clear Form" class="alt" /></li>
+                                            
+                                            OR 
+                                            
+                                            <li><input type="submit" value="confirm" class="button small scrolly" /></li>
+										</ul>
+									</div>                                    
+								</div>
+							</form>
+						</div>
+                        
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+            <script src="../static/assets/js/init.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	</body>
+</html>

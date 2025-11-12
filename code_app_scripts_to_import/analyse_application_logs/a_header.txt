@@ -1,0 +1,5 @@
+# -*- coding: UTF-8 -*-
+#!/usr/bin/env python
+'''
+    description : analyse the log file in ./debug and format it for dtree view
+'''

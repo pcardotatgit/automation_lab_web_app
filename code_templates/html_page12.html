@@ -1,0 +1,67 @@
+* z_dtree_graph_2.html***<!DOCTYPE HTML>
+<!-- description-->
+<html>
+	<head>
+		<title>FLASK APP GENERATOR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <script> 
+            function popup_window( url, id, width, height )
+            {
+               //extract the url parameters if any, and pass them to the called html
+               var tempvar=document.location.toString(); // fetch the URL string
+               var passedparams = tempvar.lastIndexOf("?");
+               if(passedparams > -1)
+                  url += tempvar.substring(passedparams);
+              popup = window.open( url, id, 'toolbar=no,scrollbars=yes,location=yes,statusbar=yes,menubar=no,resizable=yes,width=' + width + ',height=' + height + '' );
+              popup.focus();
+            }
+        </script>
+	</head>
+	<body class="is-preload">
+		<!-- Nav -->
+			<nav id="nav">
+					<li><a href="/">Back to Home</a></li>
+                    <li><a href="/logout">log Out</a></li>
+                    <li><a href="javascript:popup_window('/page_info?page={{page_name}}&route={{route}}','page_info',700,600);">:</a></li>
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<article id="top" class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+                            <a href="javascript:popup_window('/example_dtree_b_graph_it','Incident_json',800,700);" class="button small scrolly">Create the graph</a>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1>DTREE GRAPH Example - 2</strong></h1>
+                                <a href="javascript:popup_window('/goto_script_B?script=json_to_dtree_with_python_path.py&type=route','page_info',700,600);">json_to_dtree_with_python_path.py</a>
+                                <p>check the package for Javascript library</p>
+                            </header>
+							<form method='get' action="#">
+								<div class="row">
+									<div class="col-12">
+										<textarea id="incident_details" rows="100" cols="33">This script read the JSON file located in ./z_dtree-2 folder parse it, select some specifc keys and create a dtree graph from it. This JSON file is a security event result from a security product</textarea> 
+									</div>   
+								</div>
+							</form> 
+							                           
+						</div>
+					</div>	
+			</article>
+
+
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+            <script src="../static/assets/js/init.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	</body>
+</html>

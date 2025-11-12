@@ -1,0 +1,26 @@
+<html>
+<!-- description-->
+<head>
+<script type="text/javascript" src="calendarDateInput.js">
+
+/***********************************************
+* Jason's Date Input Calendar- By Jason Moon http://calendar.moonscript.com/dateinput.cfm
+* Script featured on and available at http://www.dynamicdrive.com
+* Keep this notice intact for use.
+***********************************************/
+
+</script>
+</head>
+<body>
+<form action="" method="post">
+
+<script>DateInput('orderdate', true, 'DD-MON-YYYY')</script>
+
+<input type="button" onClick="alert(this.form.orderdate.value)" value="Show date value passed">
+<label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start"  value="2018-07-22" min="2018-01-01" max="2035-12-31" />
+<input type="submit" value="OK">
+</form>
+</body>
+</html>

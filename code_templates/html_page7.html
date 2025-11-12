@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<!-- description-->
+<html>
+	<head>
+		<title>FLASK APP GENERATOR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <script>
+            function popup_window( url, id, width, height )
+            {
+               //extract the url parameters if any, and pass them to the called html
+               var tempvar=document.location.toString(); // fetch the URL string
+               var passedparams = tempvar.lastIndexOf("?");
+               if(passedparams > -1)
+                  url += tempvar.substring(passedparams);
+              popup = window.open( url, id, 'toolbar=no,scrollbars=yes,location=yes,statusbar=yes,menubar=no,resizable=yes,width=' + width + ',height=' + height + '' );
+              popup.focus();
+            }
+        </script>
+	</head>
+	<body class="is-preload">
+		<!-- Nav -->
+			<nav id="nav">
+					<li><a href="#top">Top of page</a></li>                    
+                    <li><a href="/">Back to main page</a></li>
+                    <li><a href="/tools">Back to tools page</a></li>
+                    <li><a href="/logout">log Out</a></li>
+                    <li><a href="javascript:popup_window('/page_info?page={{page_name}}&route={{route}}','page_info',700,600);">:</a></li>
+				</ul>
+			</nav>
+            <!-- Observables-->
+			<article id="observables" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Enter Observables into text</h2>
+						<p>Enter here under either one observable per line, or paste a log file that contains observables</p>
+                        <p>It will be parsed by XDR inspect API</p>
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="get" action="/inspect_text">
+								<div class="row">
+									<div class="col-12">
+										<textarea id="obs" name="text" rows="5" cols="33"></textarea>
+									</div>      
+									<div class="col-12">
+										<ul class="actions">
+                                            <li><input type="submit" value="Extract Observables into JSON" class="button small scrolly" /></li>
+											<li><input type="reset" value="Clear Form" class="alt" /></li>
+										</ul>
+									</div>                                    
+								</div>
+							</form>
+						</div>                       
+					</div>
+					<footer>
+						<ul id="copyright">
+
+						</ul>
+					</footer>
+				</div>
+			</article>
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+            <script src="../static/assets/js/init.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+	</body>
+</html>

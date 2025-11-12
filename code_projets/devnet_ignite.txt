@@ -1,0 +1,17 @@
+{
+    "description": "scripts du workshop devnet ignite",
+    "name": "devnet_ignite",
+    "package_dir": "C:\\patrick\\secu_demos\\DEVNET_ignit\\20250803",
+    "script_list": [
+        "2-feeds_indicators_and_judgments.py",
+        "3-add_ip_addresses_into_feeds.py",
+        "5-get_incident_details.py",
+        "functions_for_create_xdr_incident.py",
+        "4-parse_log_and_create_incident.py",
+        "functions_for_xdr_asking_for_a_token.py",
+        "functions_for_bundle.py",
+        "0-XDR_token.py",
+        "1-select_an_incident.py",
+        "functions_for_feeds_indicators_and_judgments.py"
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "description": "script production de raspi alerte",
+    "name": "raspi_alerte",
+    "package_dir": "C:\\patrick\\Python_DEV\\current_dev\\python\\PACKAGES\\raspi_alerte",
+    "script_list": [
+        "pir_test.py",
+        "raspi_alerte.py"
+    ]
+}

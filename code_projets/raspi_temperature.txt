@@ -1,0 +1,8 @@
+{
+    "description": "mesure de temerature pour le chauffage 500 watts",
+    "name": "raspi_temperature",
+    "package_dir": "C:\\patrick\\Python_DEV\\current_dev\\python\\z_app_generator\\code_app_scripts_to_import\\raspi_temperature\\package_dev",
+    "script_list": [
+        "raspi_temperature.py"
+    ]
+}

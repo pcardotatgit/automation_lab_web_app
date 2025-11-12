@@ -1,0 +1,5 @@
+charset-normalizer==3.4.2
+crayons==0.4.0
+ijson==3.4.0
+requests==2.32.3
+
