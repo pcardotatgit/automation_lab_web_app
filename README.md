@@ -175,3 +175,12 @@ As you run a step, you are supposed to see your queries in the simulator console
 The challenge ends when in the Results page you see every objects to discover, and malicious objects blocked.
 
 # Have Fun !!
+
+
+# Installation on Mac Machines 
+
+***Under construction***
+
+# Installation on Linux machines
+
+***Under construction***
