@@ -131,20 +131,31 @@ Then install required python modules ( Windows / Mac / Linux )
 
     python simulator.py
     
-    You should see the flask console indicating you the the web server is listening on port 400
+You should see the flask console indicating you the the web server is listening on port 4000. And at the same time your browser should open on the login page.
+
+username is : admin
+password is : password
+
+***Notice : *** username/password is a possible improvement for this application. It is not the case so far, but the application is ready for this.
+
+
     
-# Run the HTTP Client
+# Your Challenge
 
-The principle of this lab is to run several time the **challenge.py** script. Customize and debug it until it ends with a success message.
+The principle of this lab is to create a workflow in the workflow editor.
 
-**How to do :**
+This workflow is a serie of steps, put one after the other which execute every atomic operation needed to achieve the final goal.
 
-Open a second CMD console in the same working directory, then activate the same virtual environment again. An run the script.
+Generally speaking you to... find the correct API call to send to the targeted Security Solution, Search in the Web Application the step which had been prepared for this call. Then customize it by selecting the correct inputs, and selecting the correct output.
 
-    python challenge.py
-    
-The script stop several  time at every key point of the lab.  Either to highlight some information about the APIs we use, or to ask you to fix something which doesn't work ( voluntarily ).
+The output will be the input of the next step.  Etc etc... until the final step ( Malicious objects blocked ).
 
-The script tells you when you have complete the lab.
+Every tile you have to send an API call, get the JSON result, parse it for extracting from it the searched information, and then store this extracted data into the variable library.
 
-As you run the script, you are supposed to see your queries in the simulator console. And you see the server replies as well.
+You can test step by step your workflow at any time, either from the begining, or from a selected step.
+
+As you run a step, you are supposed to see your queries in the simulator console. And you see the server replies as well.
+
+The challenge ends when in the Results page you see every objects to discover, and malicious objects blocked.
+
+# Have Fun !!
