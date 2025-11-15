@@ -68,7 +68,7 @@ You must see the flask server start
 
 ## Step 1. Create a working directory
 
-Create a working directory into your laptop. Open a terminal CMD window into it. Name It XDR_BOT for example.
+Create a working directory into your laptop. Open a terminal CMD window into it. Name It **Automation_Lab** for example.
 
 ## Step 2. Copy the code into your laptop
 
@@ -93,7 +93,7 @@ Once the code unzipped into your laptop, then Go to the code subfolder.
 
 ## Step 4. Create a Python virtual environment
 
-It is still a best practice to create a python virtual environment. Thank to this you will create a dedicated package with requested modules for this application. 
+It is still a best practice to create a python virtual environment. Thanks to this you will create a dedicated subdirectory structure which contains only the requested modules for the application. 
 
 ### Create a virtual environment on Windows
 
@@ -105,7 +105,7 @@ And then move to the next step : Activate the virtual environment.
 
     venv\Scripts\activate  
 
-## Step 5. Install needed python modules
+## Step 5. Install required python modules
 
 You can install them with the following 2 commands one after the other ( Windows / Mac / Linux ):
 
@@ -132,6 +132,10 @@ I such case we have to install the python modules one by one as shown bellow
 ## finalize the installation run the **z_minimum_init_appli.py** script
 
     python z_init_appli.py
+    
+This python script is doing some intialization operations for windows machines. It creates a few subdirectories and files that are required by the application, and it modifies the **venv\Scripts\activate.bat** in order to make this batch file to start the python virtual environment and start the application. 
+
+For now this initialization script is only for windows machines.
 
 ## Step 7 : run the simulator
 
@@ -151,26 +155,28 @@ Authorize this
 
 Your browser should open on the login page.
 
-username is : admin
-password is : password
+username is : **admin**
 
-***Notice :*** username/password is a possible improvement for this application. It is not the case so far, but the application is ready for this.
+password is : **password**
+
+***Notice :*** The application is ready to manage users and their password.  But we don't need this for this lab
 
 # Your Challenge
 
-The principle of this lab is to create a workflow in the workflow editor.
+The principle of this lab is to create an automation workflow which executes a complex set of tasks that are needed to block a Threat.
 
-Student have to follow the lab guide. 
+As a Student, you have to follow the lab guide. 
 
-API keys shared with students are fakes keys, only valid for the simulator.
+API keys shared with students are faked keys that only valid for the simulator.
 
-This workflow is a serie of steps, put one after the other which execute every atomic operation needed to achieve the final goal.
+An automation workflow is a serie of steps, put one after the other which execute every atomic operation needed to achieve the final goal.
 
-Generally speaking you to... find the correct API call to send to the targeted Security Solution, Search in the Web Application the step which had been prepared for this call. Then customize it by selecting the correct inputs, and selecting the correct output.
+You have to find the correct API calls to send to the targeted Security Solutions. You have to search in the Web Application the step which had been prepared for this call. Then customize it by selecting the correct inputs, and selecting the correct output. And send the API call.
+Then you recieve an answer which is a JSON result you have to parse.
 
-The output will be the input of the next step.  Etc etc... until the final step ( Malicious objects blocked ).
+The output will be the input of the next step.  You have to execute this next step which does the same operation but on another security solution, and repeat this cycle again and again until the final step ( Malicious objects blocked ).
 
-Every tile you have to send an API call, get the JSON result, parse it for extracting from it the searched information, and then store this extracted data into the variable library.
+So we always loop on the same operations... you have to send an API call, get the JSON result, parse it for extracting from it the searched information, and then store this extracted data into the variable library.
 
 You can test step by step your workflow at any time, either from the begining, or from a selected step.
 
