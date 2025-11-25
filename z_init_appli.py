@@ -13,7 +13,7 @@ ok_delete=1
 def init_appli():
     with open('./venv/Scripts/activate.bat') as file:
         text_content=file.read()
-    text_content=text_content.replace(':END','python app.py\n:END')
+    text_content=text_content.replace(':END','python compile.py\n:END')
     with open('./venv/Scripts/activate.bat','w') as file:
         file.write(text_content)    
     os.remove("a.bat")
